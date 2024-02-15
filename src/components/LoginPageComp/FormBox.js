@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 
-import "../css/LoginPageStyles.css";
+import "../../css/LoginPageStyles.css";
 
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
