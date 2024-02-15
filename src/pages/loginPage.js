@@ -1,9 +1,9 @@
 import React from "react";
 
-import loginPage from "../css/loginPage.css";
+import LoginPage from "../css/LoginPage.css";
 import FormBox from "../components/FormBox.js";
 
-const loginPage = () => {
+const LoginPage = () => {
 	return (
 		<div className="hero">
 			<FormBox />
@@ -11,4 +11,4 @@ const loginPage = () => {
 	);
 };
 
-export default loginPage;
+export default LoginPage;
