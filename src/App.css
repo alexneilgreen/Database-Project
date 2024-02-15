@@ -1,0 +1,170 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Helvetica;
+	display: flex;
+	flex-direction: column; /* Make the layout vertical */
+	height: 100vh;
+}
+
+.top-banner {
+	background: linear-gradient(Black, #765e00);
+	height: 10%; /* 10% of the viewport height */
+	display: flex;
+	align-items: center; /* Center items vertically */
+	padding: 0 20px; /* Add padding on the sides */
+}
+
+.logo {
+	height: 80%; /* Adjust height of logo */
+	margin-right: 20px; /* Add some spacing between logo and buttons */
+}
+
+.button-container {
+	display: flex;
+	flex-grow: 1; /* Allow buttons to take up remaining space */
+	justify-content: flex-end; /* Align buttons to the right */
+	align-items: center; /* Center items vertically */
+}
+
+.button {
+	background-color: gray;
+	font-weight: 500;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 5px;
+	margin-left: 10px; /* Add spacing between buttons */
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+.button:hover {
+	background-color: #ffca00;
+}
+
+.container {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	height: 90%; /* 90% of the viewport height */
+}
+
+.feed {
+	width: 40%;
+	padding: 5%;
+	background-color: lightgray;
+	position: relative;
+}
+
+.map {
+	width: 60%;
+	padding: 5%;
+	background-color: white;
+	position: relative;
+}
+
+.content-box {
+	background-color: #fff;
+	border-radius: 15px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	height: calc(100% - 40px); /* Adjust as needed */
+	overflow-y: auto;
+}
+
+.search-bar {
+	display: flex;
+	align-items: center; /* Align items vertically */
+	background-color: #ffca00;
+	padding: 10px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+}
+
+.search-bar-text {
+	width: 80%;
+	padding: 5px;
+	margin-right: 5%;
+	border-radius: 5px;
+}
+
+.search-bar-button {
+	width: 15%;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.posts-container {
+	max-height: calc(100% - 60px); /* Adjust as needed */
+	overflow-y: auto;
+}
+
+/* .post {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	padding: 10px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+} */
+
+.post-box {
+	margin: 5px 5px 5px 10px;
+	padding: 5px;
+	border-radius: 10px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+	background-color: white;
+}
+
+.post-header {
+	display: flex;
+	justify-content: space-between; /* Evenly space the elements */
+	background-color: #daf8ff;
+	color: black;
+	border-radius: 10px;
+	padding: 0px 10px 0px 10px;
+	margin-bottom: 10px;
+}
+.post-footer {
+	display: flex;
+	justify-content: space-between; /* Place elements at the ends */
+	align-items: center; /* Center items vertically */
+	background-color: #daf8ff;
+	color: black;
+	border-radius: 10px;
+	padding: 5px 10px 5px 10px;
+	margin-top: 10px;
+}
+
+.post-footer p {
+	margin: 0; /* Remove default margin */
+}
+
+.post-footer button {
+	background-color: #3498db;
+	color: #fff;
+	padding: 5px 10px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.post-description {
+	padding: 5px;
+}
+
+.map-button {
+	padding: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+	.container {
+		flex-direction: column;
+	}
+	.feed,
+	.map {
+		width: 96%;
+		height: 50%;
+		padding: 2%;
+	}
+}
