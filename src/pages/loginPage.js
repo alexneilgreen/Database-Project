@@ -1,6 +1,5 @@
 import React from "react";
 
-import LoginPage from "../css/LoginPage.css";
 import FormBox from "../components/FormBox.js";
 
 const LoginPage = () => {

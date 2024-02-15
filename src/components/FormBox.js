@@ -1,5 +1,7 @@
 import React from "react";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
+
+import "../css/LoginPageStyles.css";
 
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
@@ -30,8 +32,8 @@ function FormBox() {
 				</button>
 			</div>
 			<div className="social-icons">
-				<img src="images/facebook.png" alt="Facebook" />
-				<img src="images/instagram.png" alt="Instagram" />
+				<img src="../images/facebook.png" alt="Facebook" />
+				<img src="../" alt="Instagram" />
 				<img src="images/x.png" alt="X" />
 				<img src="images/google.png" alt="Google" />
 			</div>
