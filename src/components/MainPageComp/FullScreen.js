@@ -2,6 +2,9 @@ import React from "react";
 
 import OpenLayers from "./OpenLayers";
 
+import fullscreenLogo from "../../images/fullscreen.png";
+import revFullscreenLogo from "../../images/rev_fullscreen.png";
+
 class FullScreen extends React.Component {
 	getFullscreenElement() {
 		return (
@@ -15,14 +18,14 @@ class FullScreen extends React.Component {
 	toggleFullscreen = () => {
 		if (this.getFullscreenElement()) {
 			document.exitFullscreen();
-			document.getElementById("btn").textContent = "Fullscreen";
+			document.getElementById("btn-image").src = fullscreenLogo;
 			console.log("Map Exit Fullscreen");
 		} else {
 			document
 				.getElementById("mapContainer")
 				.requestFullscreen()
 				.catch(console.log);
-			document.getElementById("btn").textContent = "Exit Fullscreen";
+			document.getElementById("btn-image").src = revFullscreenLogo;
 			console.log("Map Enter Fullscreen");
 		}
 	};
@@ -31,8 +34,8 @@ class FullScreen extends React.Component {
 		return (
 			<div class="map-content-box" id="mapContainer">
 				<OpenLayers />
-				<button class="map-button" id="btn" onClick={this.toggleFullscreen}>
-					Fullscreen
+				<button class="map-button" id="mapbtn" onClick={this.toggleFullscreen}>
+					<img id="btn-image" src={fullscreenLogo} alt="Fullscreen" />
 				</button>
 			</div>
 		);

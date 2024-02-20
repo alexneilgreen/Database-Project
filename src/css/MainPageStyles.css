@@ -7,6 +7,22 @@ body {
 	height: 100vh;
 }
 
+#mapbtn {
+	top: 0;
+	right: 0;
+	margin-top: 9px;
+	margin-right: 9px;
+	position: absolute;
+	width: 22px;
+	height: 22px;
+	background: white;
+	transition: 0.5s;
+}
+
+#mapbtn-image {
+	opacity: 400%;
+}
+
 .top-banner {
 	background: linear-gradient(Black, #765e00);
 	height: 10dvh; /* 10% of the viewport height */
@@ -72,18 +88,30 @@ body {
 	overflow-y: auto;
 }
 
+/* Combine with mapbtn later */
 .map-button {
 	position: absolute;
 	max-height: 10dvh;
-	padding: 5px;
-	border-radius: 5px;
+	padding: 4px;
+	border-width: 1px;
+	border-color: transparent;
+	border-radius: 3px;
 	cursor: pointer;
+	transition: 0s;
+}
+
+.map-button:hover {
+	border-color: black;
+}
+
+.map-button img {
+	height: 100%;
 }
 
 .content-box {
 	background-color: #fff;
 	border-radius: 15px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 2px 4px rgba(175, 26, 26, 0.1);
 	padding: 20px;
 	height: 70dvh;
 	overflow-y: auto;
