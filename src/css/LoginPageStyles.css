@@ -42,13 +42,14 @@
 	outline: none;
 	position: relative;
 }
+
 #btn {
 	top: 0;
 	left: 0;
 	position: absolute;
 	width: 110px;
 	height: 100%;
-	background: linear-gradient(to right, #ffca00, #daf8ff);
+	background: linear-gradient(to bottom, #ffca00, #daf8ff);
 	border-radius: 30px;
 	transition: 0.5s;
 }
@@ -96,7 +97,7 @@ span {
 	cursor: pointer;
 	display: block;
 	margin: auto;
-	background: linear-gradient(to right, #ffca00, #daf8ff);
+	background: linear-gradient(to bottom, #ffca00, #daf8ff);
 	border: 0;
 	outline: none;
 	border-radius: 30px;

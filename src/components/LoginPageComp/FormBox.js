@@ -9,7 +9,7 @@ import google from "../../images/google.png";
 
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
-import FormScript from "./FormScript"; // Import the FormScript component
+import FormScript from "./FormScript";
 
 function FormBox() {
 	useEffect(() => {
@@ -18,23 +18,7 @@ function FormBox() {
 
 	return (
 		<div className="form-box" id="formBox">
-			<div className="button-box">
-				<div id="btn"></div>
-				<button
-					type="button"
-					className="toggle-btn"
-					onClick={FormScript.loginForm}
-				>
-					Log In
-				</button>
-				<button
-					type="button"
-					className="toggle-btn"
-					onClick={FormScript.registerForm}
-				>
-					Register
-				</button>
-			</div>
+			<FormScript /> {/* Render FormScript component */}
 			<div className="social-icons">
 				<img src={facebook} alt="Facebook" />
 				<img src={instagram} alt="Instagram" />
