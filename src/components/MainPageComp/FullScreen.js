@@ -1,5 +1,7 @@
 import React from "react";
 
+import OpenLayers from "./OpenLayers";
+
 class FullScreen extends React.Component {
 	getFullscreenElement() {
 		return (
@@ -28,11 +30,10 @@ class FullScreen extends React.Component {
 	render() {
 		return (
 			<div class="map-content-box" id="mapContainer">
+				<OpenLayers />
 				<button class="map-button" id="btn" onClick={this.toggleFullscreen}>
 					Fullscreen
 				</button>
-
-				<h1>THE MAP</h1>
 			</div>
 		);
 	}
