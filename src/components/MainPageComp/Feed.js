@@ -4,18 +4,138 @@ import "../../css/MainPageStyles.css";
 
 function Feed() {
 	return (
-		<div className="container">
-			<div className="feed">{/* Your feed content */}</div>
-			<div className="map">
-				<div
-					className="content-box"
-					id="mapContainer"
-					style={{ backgroundColor: "aqua" }}
-				>
-					<button className="map-button" id="btn">
-						Fullscreen
-					</button>
-					<h1>THE MAP</h1>
+		<div class="feed">
+			<div class="content-box">
+				<div class="search-bar">
+					<input class="search-bar-text" type="text" placeholder="Search..." />
+					<button type="search-bar-button">Search</button>
+				</div>
+				<div class="posts-container">
+					<div class="post-box">
+						<div class="post-header">
+							<h4>Event Name</h4>
+							<h4>Event Time</h4>
+							<h4>Event Location</h4>
+						</div>
+						<div class="post-description">
+							<p>
+								Event Description Event Description Event Description Event
+								Description Event Description Event Description Event
+								Description Event Description Event Description
+							</p>
+						</div>
+						<div class="post-footer">
+							<p>
+								RSO Name: <strong>RSO Name</strong>
+							</p>
+							<button>Map</button>
+						</div>
+					</div>
+
+					<div class="post-box">
+						<div class="post-header">
+							<h4>Event Name</h4>
+							<h4>Event Time</h4>
+							<h4>Event Location</h4>
+						</div>
+						<div class="post-description">
+							<p>
+								Event Description Event Description Event Description Event
+								Description Event Description Event Description Event
+								Description Event Description Event Description
+							</p>
+						</div>
+						<div class="post-footer">
+							<p>
+								RSO Name: <strong>RSO Name</strong>
+							</p>
+							<button>Map</button>
+						</div>
+					</div>
+
+					<div class="post-box">
+						<div class="post-header">
+							<h4>Event Name</h4>
+							<h4>Event Time</h4>
+							<h4>Event Location</h4>
+						</div>
+						<div class="post-description">
+							<p>
+								Event Description Event Description Event Description Event
+								Description Event Description Event Description Event
+								Description Event Description Event Description
+							</p>
+						</div>
+						<div class="post-footer">
+							<p>
+								RSO Name: <strong>RSO Name</strong>
+							</p>
+							<button>Map</button>
+						</div>
+					</div>
+
+					<div class="post-box">
+						<div class="post-header">
+							<h4>Event Name</h4>
+							<h4>Event Time</h4>
+							<h4>Event Location</h4>
+						</div>
+						<div class="post-description">
+							<p>
+								Event Description Event Description Event Description Event
+								Description Event Description Event Description Event
+								Description Event Description Event Description
+							</p>
+						</div>
+						<div class="post-footer">
+							<p>
+								RSO Name: <strong>RSO Name</strong>
+							</p>
+							<button>Map</button>
+						</div>
+					</div>
+
+					<div class="post-box">
+						<div class="post-header">
+							<h4>Event Name</h4>
+							<h4>Event Time</h4>
+							<h4>Event Location</h4>
+						</div>
+						<div class="post-description">
+							<p>
+								Event Description Event Description Event Description Event
+								Description Event Description Event Description Event
+								Description Event Description Event Description
+							</p>
+						</div>
+						<div class="post-footer">
+							<p>
+								RSO Name: <strong>RSO Name</strong>
+							</p>
+							<button>Map</button>
+						</div>
+					</div>
+
+					<div class="post-box">
+						<div class="post-header">
+							<h4>Event Name</h4>
+							<h4>Event Time</h4>
+							<h4>Event Location</h4>
+						</div>
+						<div class="post-description">
+							<p>
+								Event Description Event Description Event Description Event
+								Description Event Description Event Description Event
+								Description Event Description Event Description
+							</p>
+						</div>
+						<div class="post-footer">
+							<p>
+								RSO Name: <strong>RSO Name</strong>
+							</p>
+							<button>Map</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
