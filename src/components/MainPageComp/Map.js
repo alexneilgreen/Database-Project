@@ -2,6 +2,8 @@ import React from "react";
 
 import "../../css/MainPageStyles.css";
 
+import MainScript from "../../components/MainPageComp/MainScript.js";
+
 function Map() {
 	return (
 		<div class="map">
