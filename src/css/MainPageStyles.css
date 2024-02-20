@@ -9,14 +9,14 @@ body {
 
 .top-banner {
 	background: linear-gradient(Black, #765e00);
-	height: 10%; /* 10% of the viewport height */
+	height: 10vh; /* 10% of the viewport height */
 	display: flex;
 	align-items: center; /* Center items vertically */
 	padding: 0 20px; /* Add padding on the sides */
 }
 
 .logo {
-	height: 80%; /* Adjust height of logo */
+	height: 8vh; /* Adjust height of logo */
 	margin-right: 20px; /* Add some spacing between logo and buttons */
 }
 
@@ -51,6 +51,7 @@ body {
 
 .feed {
 	width: 40%;
+	height: 80vh;
 	padding: 5%;
 	background-color: lightgray;
 	position: relative;
@@ -61,6 +62,15 @@ body {
 	padding: 5%;
 	background-color: white;
 	position: relative;
+}
+
+.map-content-box {
+	background-color: aqua;
+	border-radius: 15px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	height: calc(100% - 40px); /* Adjust as needed */
+	overflow-y: auto;
 }
 
 .content-box {
