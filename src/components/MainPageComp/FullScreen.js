@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-function MainScript() {
-	function getFullscreenElement() {
+class FullScreen extends React.Component {
+	getFullscreenElement() {
 		return (
 			document.fullscreenElement ||
 			document.webkitFullscreenElement ||
@@ -10,8 +10,8 @@ function MainScript() {
 		);
 	}
 
-	function toggleFullscreen() {
-		if (getFullscreenElement()) {
+	toggleFullscreen = () => {
+		if (this.getFullscreenElement()) {
 			document.exitFullscreen();
 			document.getElementById("btn").textContent = "Fullscreen";
 			console.log("Map Exit Fullscreen");
@@ -23,18 +23,19 @@ function MainScript() {
 			document.getElementById("btn").textContent = "Exit Fullscreen";
 			console.log("Map Enter Fullscreen");
 		}
+	};
+
+	render() {
+		return (
+			<div class="map-content-box" id="mapContainer">
+				<button class="map-button" id="btn" onClick={this.toggleFullscreen}>
+					Fullscreen
+				</button>
+
+				<h1>THE MAP</h1>
+			</div>
+		);
 	}
-
-	useEffect(() => {
-		document.getElementById("btn").addEventListener("click", toggleFullscreen);
-		return () => {
-			document
-				.getElementById("btn")
-				.removeEventListener("click", toggleFullscreen);
-		};
-	}, []);
-
-	return null; // This component doesn't render anything visible
 }
 
-export default MainScript;
+export default FullScreen;
