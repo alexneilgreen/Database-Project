@@ -3,7 +3,7 @@
 	padding: 0;
 	font-family: Helvetica;
 }
-.hero {
+.RSO-hero {
 	height: 100%;
 	width: 100%;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)),
@@ -13,20 +13,20 @@
 	position: absolute;
 }
 
-.RSOcontainer {
+.RSO-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
 }
 
-.RSOlogo {
+.RSO-logo {
 	height: 8dvh;
 	display: block;
 	margin: 0 auto 20px auto;
 }
 
-.RSOform-box {
+.RSO-form-box {
 	width: 300px;
 	padding: 20px;
 	border: 1px solid #ccc;
@@ -34,14 +34,14 @@
 	background-color: White;
 }
 
-.RSOform-box input,
-.RSOform-box textarea {
+.RSO-form-box input,
+.RSO-form-box textarea {
 	width: 100%;
 	margin-bottom: 10px;
 	padding: 8px;
 	box-sizing: border-box;
 }
 
-.RSOform-box textarea {
+.RSO-form-box textarea {
 	height: 100px;
 }

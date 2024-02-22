@@ -11,8 +11,8 @@ function Feed() {
 	};
 
 	return (
-		<div class="feed">
-			<div class="content-box">
+		<div class="feed-section">
+			<div class="feed-content-box">
 				<div className="tabs">
 					<div
 						className={`tab ${activeTab === 1 && "active"}`}

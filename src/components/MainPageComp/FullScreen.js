@@ -18,14 +18,14 @@ class FullScreen extends React.Component {
 	toggleFullscreen = () => {
 		if (this.getFullscreenElement()) {
 			document.exitFullscreen();
-			document.getElementById("btn-image").src = fullscreenLogo;
+			document.getElementById("map-btn-image").src = fullscreenLogo;
 			console.log("Map Exit Fullscreen");
 		} else {
 			document
 				.getElementById("mapContainer")
 				.requestFullscreen()
 				.catch(console.log);
-			document.getElementById("btn-image").src = revFullscreenLogo;
+			document.getElementById("map-btn-image").src = revFullscreenLogo;
 			console.log("Map Enter Fullscreen");
 		}
 	};
@@ -35,7 +35,7 @@ class FullScreen extends React.Component {
 			<div class="map-content-box" id="mapContainer">
 				<OpenLayers />
 				<button class="map-button" id="mapbtn" onClick={this.toggleFullscreen}>
-					<img id="btn-image" src={fullscreenLogo} alt="Fullscreen" />
+					<img id="map-btn-image" src={fullscreenLogo} alt="Fullscreen" />
 				</button>
 			</div>
 		);

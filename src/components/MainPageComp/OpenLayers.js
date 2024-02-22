@@ -1,4 +1,3 @@
-// App.js
 import React, { useState, useLayoutEffect, useEffect, useRef } from "react";
 import "ol/ol.css";
 import Map from "ol/Map";
@@ -14,6 +13,7 @@ import { fromLonLat, toLonLat } from "ol/proj";
 import { defaults as defaultInteractions } from "ol/interaction";
 
 import pin from "../../images/pin.png";
+import "../../css/MainPageStyles.css";
 
 const OpenLayers = () => {
 	const [latitude, setLatitude] = useState("");
@@ -98,7 +98,7 @@ const OpenLayers = () => {
 		}
 	};
 
-	return <div id="map" style={{ width: "100%", height: "100%" }}></div>;
+	return <div id="map" /*style={{ width: "100%", height: "100%" }}*/></div>;
 };
 
 export default OpenLayers;

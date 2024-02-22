@@ -4,7 +4,7 @@ import FormBox from "../components/RSOPageComp/FormBox.js";
 
 const LoginPage = () => {
 	return (
-		<div className="hero">
+		<div className="RSO-hero">
 			<FormBox />
 		</div>
 	);

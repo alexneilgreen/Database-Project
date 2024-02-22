@@ -5,9 +5,9 @@ import logo from "../../images/UCF_Logo_Clean_Horizontal.jpg";
 
 function FormBox() {
 	return (
-		<div className="RSOcontainer">
-			<div className="RSOform-box" id="formBox">
-				<img src={logo} alt="Logo" className="RSOlogo" />
+		<div className="RSO-container">
+			<div className="RSO-form-box" id="formBox">
+				<img src={logo} alt="Logo" className="RSO-logo" />
 				<input type="text" id="eventName" placeholder="Event Name" />
 				<input type="text" id="eventLocation" placeholder="Event Location" />
 				<input type="text" id="eventTime" placeholder="Event Time" />

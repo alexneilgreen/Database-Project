@@ -2,10 +2,10 @@ import React from "react";
 
 class FormScript extends React.Component {
 	loginForm = () => {
-		const form = document.getElementById("formBox");
+		const form = document.getElementById("logformBox");
 		const x = document.getElementById("login");
 		const y = document.getElementById("register");
-		const z = document.getElementById("btn");
+		const z = document.getElementById("logbtn");
 
 		form.style.height = "400px";
 		x.style.left = "50px";
@@ -14,10 +14,10 @@ class FormScript extends React.Component {
 	};
 
 	registerForm = () => {
-		const form = document.getElementById("formBox");
+		const form = document.getElementById("logformBox");
 		const x = document.getElementById("login");
 		const y = document.getElementById("register");
-		const z = document.getElementById("btn");
+		const z = document.getElementById("logbtn");
 
 		form.style.height = "450px";
 		x.style.left = "-400px";
@@ -27,18 +27,18 @@ class FormScript extends React.Component {
 
 	render() {
 		return (
-			<div className="button-box">
-				<div id="btn"></div>
+			<div className="logbutton-box">
+				<div id="logbtn"></div>
 				<button
 					type="button"
-					className="toggle-btn"
+					className="logtoggle-btn"
 					onClick={this.loginForm} // Call the loginForm function
 				>
 					Log In
 				</button>
 				<button
 					type="button"
-					className="toggle-btn"
+					className="logtoggle-btn"
 					onClick={this.registerForm} // Call the registerForm function
 				>
 					Register

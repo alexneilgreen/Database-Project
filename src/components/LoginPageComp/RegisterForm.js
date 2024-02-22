@@ -2,28 +2,28 @@ import React from "react";
 
 function RegisterForm() {
 	return (
-		<form id="register" className="input-group">
+		<form id="register" className="loginput-group">
 			<input
 				type="text"
-				className="input-field"
+				className="loginput-field"
 				placeholder="Enter Username"
 				required
 			/>
 			<input
 				type="password"
-				className="input-field"
+				className="loginput-field"
 				placeholder="Enter Password"
 				required
 			/>
 			<input
 				type="email"
-				className="input-field"
+				className="loginput-field"
 				placeholder="Enter Email"
 				required
 			/>
-			<input type="checkbox" className="check-box" />
+			<input type="checkbox" className="logcheck-box" />
 			<span>Are you an RSO Owner?</span>
-			<button type="submit" className="submit-btn">
+			<button type="submit" className="logsubmit-btn">
 				Register
 			</button>
 		</form>

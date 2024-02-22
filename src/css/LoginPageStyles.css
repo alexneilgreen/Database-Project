@@ -4,7 +4,7 @@
 	font-family: Helvetica;
 }
 
-.hero {
+.loghero {
 	height: 100%;
 	width: 100%;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)),
@@ -14,7 +14,7 @@
 	position: absolute;
 }
 
-.form-box {
+.logform-box {
 	width: 380px;
 	height: 400px;
 	position: relative;
@@ -26,7 +26,7 @@
 	transition: 0.5s;
 }
 
-.button-box {
+.logbutton-box {
 	width: 220px;
 	margin: 35px auto;
 	position: relative;
@@ -35,11 +35,11 @@
 	transition: 0.5s;
 }
 
-.button-box:hover {
+.logbutton-box:hover {
 	box-shadow: 0 0 15px 9px #ffeca1;
 }
 
-.toggle-btn {
+.logtoggle-btn {
 	padding: 10px 30px;
 	cursor: pointer;
 	background: transparent;
@@ -48,7 +48,7 @@
 	position: relative;
 }
 
-#btn {
+#logbtn {
 	top: 0;
 	left: 0;
 	position: absolute;
@@ -59,26 +59,26 @@
 	transition: 0.5s;
 }
 
-.social-icons {
+.logsocial-icons {
 	margin: 30px auto;
 	text-align: center;
 }
 
-.social-icons img {
+.logsocial-icons img {
 	width: 30px;
 	margin: 0 12px;
 	cursor: pointer;
 	border-radius: 5px;
 }
 
-.input-group {
+.loginput-group {
 	top: 180px;
 	position: absolute;
 	width: 280px;
 	transition: 0.5s;
 }
 
-.input-field {
+.loginput-field {
 	width: 100%;
 	padding: 10px 0;
 	margin: 5px 0;
@@ -90,7 +90,7 @@
 	background: transparent;
 }
 
-.check-box {
+.logcheck-box {
 	margin: 30px 10px 30px 0;
 }
 
@@ -102,7 +102,7 @@ span {
 	position: absolute;
 }
 
-.submit-btn {
+.logsubmit-btn {
 	width: 85%;
 	height: 30px;
 	/* padding: 10px, 30px; */
@@ -117,7 +117,7 @@ span {
 	transition: 0.5s;
 }
 
-.submit-btn:hover {
+.logsubmit-btn:hover {
 	box-shadow: 0 0 15px 9px #ffeca1;
 }
 

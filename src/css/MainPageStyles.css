@@ -19,11 +19,7 @@ body {
 	transition: 0.5s;
 }
 
-#mapbtn-image {
-	opacity: 400%;
-}
-
-.top-banner {
+.header-banner {
 	background: linear-gradient(Black, #765e00);
 	height: 10dvh; /* 10% of the viewport height */
 	display: flex;
@@ -31,19 +27,19 @@ body {
 	padding: 0 20px; /* Add padding on the sides */
 }
 
-.logo {
+.header-logo {
 	height: 8vh; /* Adjust height of logo */
 	margin-right: 20px; /* Add some spacing between logo and buttons */
 }
 
-.button-container {
+.header-button-container {
 	display: flex;
 	flex-grow: 1; /* Allow buttons to take up remaining space */
 	justify-content: flex-end; /* Align buttons to the right */
 	align-items: center; /* Center items vertically */
 }
 
-.button {
+.header-button {
 	background-color: gray;
 	height: 2dvh;
 	font-weight: 500;
@@ -55,29 +51,34 @@ body {
 	transition: 0.5s;
 }
 
-.button:hover {
+.header-button:hover {
 	background-color: #ffca00;
 }
 
-.container {
+.main-container {
 	display: flex;
 	flex-direction: row;
 	width: 100%;
 	height: 90dvh; /* 90% of the viewport height */
 }
 
-.feed {
+.feed-section {
 	width: 40%;
 	padding: 5%;
 	background-color: lightgray;
 	position: relative;
 }
 
-.map {
+.map-section {
 	width: 60%;
 	padding: 5%;
 	background-color: white;
 	position: relative;
+}
+
+#map {
+	width: 100%;
+	height: 100%;
 }
 
 .map-content-box {
@@ -108,12 +109,13 @@ body {
 	height: 100%;
 }
 
-.content-box {
+.feed-content-box {
 	background-color: #fff;
 	border-radius: 15px;
 	box-shadow: 0 2px 4px rgba(175, 26, 26, 0.1);
 	padding: 20px;
 	height: 70dvh;
+	width: 90%;
 	overflow-y: auto;
 	display: flex;
 	flex-direction: column;
@@ -191,17 +193,28 @@ body {
 }
 
 @media screen and (max-width: 800px) {
-	.container {
+	.main-container {
 		flex-direction: column;
 	}
-	.feed,
-	.map {
+
+	.feed-section,
+	.map-section {
 		width: 96dvw;
 		height: 45dvh;
 		padding: 2dvw;
 	}
+
+	.feed-content-box {
+		height: 90%;
+	}
+
 	.map-button {
 		margin: 5%;
+	}
+
+	.map-content-box {
+		width: 95%;
+		height: 100%;
 	}
 }
 
