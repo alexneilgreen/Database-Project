@@ -280,19 +280,25 @@ body {
 }
 
 .modal-content {
-	/* Add your custom styles for the modal content */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .modal-header {
+	margin-bottom: 15px;
 }
 
 .modal-description {
+	max-width: 85%;
 }
 
 .modal-buttons {
+	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-top: 15px;
 }
 
 .modal-follow {
@@ -300,7 +306,6 @@ body {
 	width: 20%;
 	height: 30px;
 	cursor: pointer;
-	margin: auto;
 	background: lightgray;
 	outline: none;
 	border-radius: 30px;
@@ -321,8 +326,7 @@ body {
 	width: 20%;
 	height: 30px;
 	cursor: pointer;
-	margin: auto;
-	margin-left: 4%;
+	margin-left: 5%;
 	background: lightgreen;
 	outline: none;
 	border-radius: 30px;
