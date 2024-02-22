@@ -11,11 +11,18 @@ function MainHeader() {
 			<img src={logo} className="header-logo" alt="Logo" />
 			<div className="header-button-container">
 				<Link
-					to="/createRSO"
+					to="/createEvent"
 					className="header-button"
 					style={{ textDecoration: "none" }}
 				>
 					Create Event
+				</Link>
+				<Link
+					to="/createRSO"
+					className="header-button"
+					style={{ textDecoration: "none" }}
+				>
+					Create RSO
 				</Link>
 				<Link
 					to="/joinRSO"

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "../../css/EventPageStyles.css";
 import logo from "../../images/UCF_Logo_Clean_Horizontal.jpg";
@@ -7,7 +8,9 @@ function FormBox() {
 	return (
 		<div className="event-container">
 			<div className="event-form-box" id="formBox">
-				<img src={logo} alt="Logo" className="event-logo" />
+				<Link to="/main">
+					<img src={logo} alt="Logo" className="event-logo" />
+				</Link>
 				<input type="text" id="eventName" placeholder="Event Name" />
 				<input type="text" id="eventLocation" placeholder="Event Location" />
 				<input type="text" id="eventTime" placeholder="Event Time" />
