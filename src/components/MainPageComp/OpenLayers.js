@@ -39,7 +39,7 @@ const OpenLayers = () => {
 				interactions: defaultInteractions({ doubleClickZoom: false }),
 				view: new View({
 					center: fromLonLat([-81.2001, 28.6024]),
-					zoom: 15.5,
+					zoom: 16,
 				}),
 			});
 
@@ -98,7 +98,7 @@ const OpenLayers = () => {
 		}
 	};
 
-	return <div id="map" /*style={{ width: "100%", height: "100%" }}*/></div>;
+	return <div id="map"></div>;
 };
 
 export default OpenLayers;

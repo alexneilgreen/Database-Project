@@ -29,21 +29,24 @@
 .log-button-box {
 	width: 220px;
 	margin: 35px auto;
+	background: #ececec;
 	position: relative;
-	box-shadow: 0 0 20px 9px #e0f8ff;
 	border-radius: 30px;
 	transition: 0.5s;
 }
 
 .log-button-box:hover {
-	box-shadow: 0 0 15px 9px #ffeca1;
+	box-shadow: 0 0 8px 4px #ececec;
 }
 
 .log-toggle-btn {
+	font-weight: 600;
+	color: rgb(100, 100, 100);
 	padding: 10px 30px;
 	cursor: pointer;
 	background: transparent;
 	border: 0;
+	border-color: #bdbdbd;
 	outline: none;
 	position: relative;
 }
@@ -52,11 +55,15 @@
 	top: 0;
 	left: 0;
 	position: absolute;
-	width: 110px;
-	height: 100%;
+	width: 90px;
+	height: 89%;
 	background: lightgray;
 	border-radius: 30px;
 	transition: 0.5s;
+	border-top: 2px solid #bdbdbd; /* Gray border on the top */
+	border-left: 2px solid #bdbdbd; /* Gray border on the left */
+	border-bottom: 2px solid rgb(100, 100, 100); /* Dark gray border on the bottom */
+	border-right: 2px solid rgb(100, 100, 100); /* Dark gray border on the right */
 }
 
 .log-social-icons {
@@ -102,6 +109,8 @@ span {
 }
 
 .log-submit-btn {
+	font-weight: 600;
+	color: rgb(100, 100, 100);
 	width: 85%;
 	height: 30px;
 	cursor: pointer;
@@ -111,11 +120,11 @@ span {
 	outline: none;
 	border-radius: 30px;
 	border-color: #bdbdbd;
-	/* box-shadow: 0 0 20px 9px #e0f8ff; */
 	transition: 0.5s;
 }
 
 .log-submit-btn:hover {
+	background: #bdbdbd;
 	box-shadow: 0 0 8px 4px #dadada;
 }
 

@@ -11,6 +11,7 @@ class FormScript extends React.Component {
 		x.style.left = "50px";
 		y.style.left = "450px";
 		z.style.left = "0px";
+		z.style.width = "100px";
 	};
 
 	registerForm = () => {
@@ -22,7 +23,8 @@ class FormScript extends React.Component {
 		form.style.height = "450px";
 		x.style.left = "-400px";
 		y.style.left = "50px";
-		z.style.left = "110px";
+		z.style.left = "85px";
+		z.style.width = "135px";
 	};
 
 	render() {

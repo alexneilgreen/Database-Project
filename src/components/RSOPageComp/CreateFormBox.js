@@ -16,8 +16,8 @@ function FormBox() {
 					placeholder="Event Description - 200 Character Max"
 					maxLength="200"
 				></textarea>
-				<button type="submit" className="RSO-submit-btn">
-					Create/Edit
+				<button type="submit" className="RSO-create-btn">
+					Create
 				</button>
 			</div>
 		</div>

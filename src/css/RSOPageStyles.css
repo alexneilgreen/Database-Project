@@ -47,19 +47,69 @@
 	height: 100px;
 }
 
-.RSO-submit-btn {
+.RSO-create-btn {
+	font-weight: 600;
 	width: 85%;
 	height: 30px;
 	cursor: pointer;
 	display: block;
 	margin: auto;
-	background: #ffca00;
-	border: 0;
+	background: lightgray;
 	outline: none;
 	border-radius: 30px;
+	border-color: #bdbdbd;
 	transition: 0.5s;
+	color: rgb(100, 100, 100);
 }
 
-.RSO-submit-btn:hover {
-	box-shadow: 0 0 6px 4px #ccc0;
+.RSO-create-btn:hover {
+	color: rgb(40, 40, 40);
+	background: #bdbdbd;
+	box-shadow: 0 0 8px 4px #dadada;
+}
+
+.RSO-edit-btn {
+	font-weight: 600;
+	width: 48%;
+	height: 30px;
+	cursor: pointer;
+	margin: auto;
+	background: lightgray;
+	outline: none;
+	border-radius: 30px;
+	border-color: #bdbdbd;
+	transition: 0.5s;
+	color: rgb(100, 100, 100);
+	text-shadow: 0 0 3px darkgray;
+}
+
+.RSO-edit-btn:hover {
+	color: rgb(40, 40, 40);
+	background: #bdbdbd;
+	box-shadow: 0 0 8px 4px #dadada;
+}
+
+.RSO-delete-btn {
+	font-weight: 600;
+	width: 48%;
+	height: 30px;
+	cursor: pointer;
+	margin: auto;
+	margin-left: 4%;
+	background: lightcoral;
+	outline: none;
+	border-radius: 30px;
+	border-color: #bdbdbd;
+	transition: 0.5s;
+	color: rgb(100, 100, 100);
+}
+
+.RSO-delete-btn:hover {
+	color: rgb(40, 40, 40);
+	background: rgb(235, 54, 54);
+	box-shadow: 0 0 8px 4px #dadada;
+}
+
+.RSO-btn-span {
+	width: 10%;
 }

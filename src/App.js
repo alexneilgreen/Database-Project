@@ -5,7 +5,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import LoginPage from "./pages/LoginPage";
 import MainPage from "./pages/MainPage";
-import RSOPage from "./pages/RSOPage";
+import CreateRSOPage from "./pages/CreateRSOPage";
+import EditRSOPage from "./pages/EditRSOPage";
 import TestPage from "./pages/TestPage";
 
 function App() {
@@ -14,7 +15,8 @@ function App() {
 			<Routes>
 				<Route path="/" index element={<LoginPage />} />
 				<Route path="/main" index element={<MainPage />} />
-				<Route path="/rso" index element={<RSOPage />} />
+				<Route path="/createRSO" index element={<CreateRSOPage />} />
+				<Route path="/editRSO" index element={<EditRSOPage />} />
 				<Route path="/test" index element={<TestPage />} />
 			</Routes>
 		</BrowserRouter>
