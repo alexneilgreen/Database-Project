@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "../../css/MainPageStyles.css";
 
@@ -9,9 +10,27 @@ function MainHeader() {
 		<div className="header-banner">
 			<img src={logo} className="header-logo" alt="Logo" />
 			<div className="header-button-container">
-				<div className="header-button">Create Event</div>
-				<div className="header-button">Join RSO Board</div>
-				<div className="header-button">Log Out</div>
+				<Link
+					to="/createRSO"
+					className="header-button"
+					style={{ textDecoration: "none" }}
+				>
+					Create Event
+				</Link>
+				<Link
+					to="/joinRSO"
+					className="header-button"
+					style={{ textDecoration: "none" }}
+				>
+					Join RSO Board
+				</Link>
+				<Link
+					to="/"
+					className="header-button"
+					style={{ textDecoration: "none" }}
+				>
+					Log Out
+				</Link>
 			</div>
 		</div>
 	);

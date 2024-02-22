@@ -20,10 +20,34 @@ function FormBox() {
 		<div className="log-form-box" id="log-formBox">
 			<FormScript /> {/* Render FormScript component */}
 			<div className="log-social-icons">
-				<img src={facebook} alt="Facebook" />
-				<img src={instagram} alt="Instagram" />
-				<img src={x} alt="X" />
-				<img src={google} alt="Google" />
+				<a
+					href="https://www.facebook.com/login/"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<img src={facebook} alt="Facebook" />
+				</a>
+				<a
+					href="https://www.instagram.com/accounts/login/"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<img src={instagram} alt="Instagram" />
+				</a>
+				<a
+					href="https://twitter.com/i/flow/login"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<img src={x} alt="X" />
+				</a>
+				<a
+					href="https://accounts.google.com/servicelogin?hl=en-gb"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<img src={google} alt="Google" />
+				</a>
 			</div>
 			<LoginForm />
 			<RegisterForm />
