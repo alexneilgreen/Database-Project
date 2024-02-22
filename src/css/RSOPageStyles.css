@@ -3,6 +3,7 @@
 	padding: 0;
 	font-family: Helvetica;
 }
+
 .RSO-hero {
 	height: 100%;
 	width: 100%;
@@ -44,4 +45,21 @@
 
 .RSO-form-box textarea {
 	height: 100px;
+}
+
+.RSO-submit-btn {
+	width: 85%;
+	height: 30px;
+	cursor: pointer;
+	display: block;
+	margin: auto;
+	background: #ffca00;
+	border: 0;
+	outline: none;
+	border-radius: 30px;
+	transition: 0.5s;
+}
+
+.RSO-submit-btn:hover {
+	box-shadow: 0 0 6px 4px #ccc0;
 }

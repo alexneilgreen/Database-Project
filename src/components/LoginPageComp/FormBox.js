@@ -17,9 +17,9 @@ function FormBox() {
 	}, []); // empty dependency array means it only runs once when component mounts
 
 	return (
-		<div className="logform-box" id="logformBox">
+		<div className="log-form-box" id="log-formBox">
 			<FormScript /> {/* Render FormScript component */}
-			<div className="logsocial-icons">
+			<div className="log-social-icons">
 				<img src={facebook} alt="Facebook" />
 				<img src={instagram} alt="Instagram" />
 				<img src={x} alt="X" />

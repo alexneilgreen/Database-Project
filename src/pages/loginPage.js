@@ -4,7 +4,7 @@ import FormBox from "../components/LoginPageComp/FormBox.js";
 
 const LoginPage = () => {
 	return (
-		<div className="loghero">
+		<div className="log-hero">
 			<FormBox />
 		</div>
 	);
