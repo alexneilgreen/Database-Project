@@ -13,7 +13,7 @@ import VectorSource from "ol/source/Vector";
 import { fromLonLat, toLonLat } from "ol/proj";
 import { defaults as defaultInteractions } from "ol/interaction";
 
-import pin from "../../images/Richard-Leinecker.jpg";
+import pin from "../../images/pin.png";
 
 const OpenLayers = () => {
 	const [latitude, setLatitude] = useState("");
@@ -39,7 +39,7 @@ const OpenLayers = () => {
 				interactions: defaultInteractions({ doubleClickZoom: false }),
 				view: new View({
 					center: fromLonLat([-81.2001, 28.6024]),
-					zoom: 14,
+					zoom: 15.5,
 				}),
 			});
 
@@ -82,7 +82,7 @@ const OpenLayers = () => {
 		const iconStyle = new Style({
 			image: new Icon({
 				src: pin, // Use the imported image
-				scale: 0.03,
+				scale: 0.1,
 			}),
 		});
 
