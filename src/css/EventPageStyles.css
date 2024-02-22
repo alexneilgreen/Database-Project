@@ -1,0 +1,115 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Helvetica;
+}
+
+.event-hero {
+	height: 100%;
+	width: 100%;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)),
+		url(../images/UCF_11.jpg);
+	background-position: center;
+	background-size: cover;
+	position: absolute;
+}
+
+.event-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.event-logo {
+	height: 8dvh;
+	display: block;
+	margin: 0 auto 20px auto;
+}
+
+.event-form-box {
+	width: 300px;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	background-color: White;
+}
+
+.event-form-box input,
+.event-form-box textarea {
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 8px;
+	box-sizing: border-box;
+}
+
+.event-form-box textarea {
+	height: 100px;
+}
+
+.event-create-btn {
+	font-weight: 600;
+	width: 85%;
+	height: 30px;
+	cursor: pointer;
+	display: block;
+	margin: auto;
+	background: lightgray;
+	outline: none;
+	border-radius: 30px;
+	border-color: #bdbdbd;
+	transition: 0.5s;
+	color: rgb(100, 100, 100);
+}
+
+.event-create-btn:hover {
+	color: rgb(40, 40, 40);
+	background: #bdbdbd;
+	box-shadow: 0 0 8px 4px #dadada;
+}
+
+.event-edit-btn {
+	font-weight: 600;
+	width: 48%;
+	height: 30px;
+	cursor: pointer;
+	margin: auto;
+	background: lightgray;
+	outline: none;
+	border-radius: 30px;
+	border-color: #bdbdbd;
+	transition: 0.5s;
+	color: rgb(100, 100, 100);
+	text-shadow: 0 0 3px darkgray;
+}
+
+.event-edit-btn:hover {
+	color: rgb(40, 40, 40);
+	background: #bdbdbd;
+	box-shadow: 0 0 8px 4px #dadada;
+}
+
+.event-delete-btn {
+	font-weight: 600;
+	width: 48%;
+	height: 30px;
+	cursor: pointer;
+	margin: auto;
+	margin-left: 4%;
+	background: lightcoral;
+	outline: none;
+	border-radius: 30px;
+	border-color: #bdbdbd;
+	transition: 0.5s;
+	color: rgb(100, 100, 100);
+}
+
+.event-delete-btn:hover {
+	color: rgb(40, 40, 40);
+	background: rgb(235, 54, 54);
+	box-shadow: 0 0 8px 4px #dadada;
+}
+
+.event-btn-span {
+	width: 10%;
+}

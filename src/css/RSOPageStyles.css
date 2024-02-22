@@ -4,112 +4,12 @@
 	font-family: Helvetica;
 }
 
-.RSO-hero {
+.rso-hero {
 	height: 100%;
 	width: 100%;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)),
-		url(../images/UCF_11.jpg);
+		url(../images/UCF_8.jpg);
 	background-position: center;
 	background-size: cover;
 	position: absolute;
-}
-
-.RSO-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-}
-
-.RSO-logo {
-	height: 8dvh;
-	display: block;
-	margin: 0 auto 20px auto;
-}
-
-.RSO-form-box {
-	width: 300px;
-	padding: 20px;
-	border: 1px solid #ccc;
-	border-radius: 10px;
-	background-color: White;
-}
-
-.RSO-form-box input,
-.RSO-form-box textarea {
-	width: 100%;
-	margin-bottom: 10px;
-	padding: 8px;
-	box-sizing: border-box;
-}
-
-.RSO-form-box textarea {
-	height: 100px;
-}
-
-.RSO-create-btn {
-	font-weight: 600;
-	width: 85%;
-	height: 30px;
-	cursor: pointer;
-	display: block;
-	margin: auto;
-	background: lightgray;
-	outline: none;
-	border-radius: 30px;
-	border-color: #bdbdbd;
-	transition: 0.5s;
-	color: rgb(100, 100, 100);
-}
-
-.RSO-create-btn:hover {
-	color: rgb(40, 40, 40);
-	background: #bdbdbd;
-	box-shadow: 0 0 8px 4px #dadada;
-}
-
-.RSO-edit-btn {
-	font-weight: 600;
-	width: 48%;
-	height: 30px;
-	cursor: pointer;
-	margin: auto;
-	background: lightgray;
-	outline: none;
-	border-radius: 30px;
-	border-color: #bdbdbd;
-	transition: 0.5s;
-	color: rgb(100, 100, 100);
-	text-shadow: 0 0 3px darkgray;
-}
-
-.RSO-edit-btn:hover {
-	color: rgb(40, 40, 40);
-	background: #bdbdbd;
-	box-shadow: 0 0 8px 4px #dadada;
-}
-
-.RSO-delete-btn {
-	font-weight: 600;
-	width: 48%;
-	height: 30px;
-	cursor: pointer;
-	margin: auto;
-	margin-left: 4%;
-	background: lightcoral;
-	outline: none;
-	border-radius: 30px;
-	border-color: #bdbdbd;
-	transition: 0.5s;
-	color: rgb(100, 100, 100);
-}
-
-.RSO-delete-btn:hover {
-	color: rgb(40, 40, 40);
-	background: rgb(235, 54, 54);
-	box-shadow: 0 0 8px 4px #dadada;
-}
-
-.RSO-btn-span {
-	width: 10%;
 }
