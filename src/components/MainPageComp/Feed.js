@@ -1,11 +1,38 @@
-import React from "react";
+// import React from "react";
+import React, { useState } from "react";
 
 import "../../css/MainPageStyles.css";
 
 function Feed() {
+	const [activeTab, setActiveTab] = useState(1);
+
+	const handleTabClick = (tabNumber) => {
+		setActiveTab(tabNumber);
+	};
+
 	return (
 		<div class="feed">
 			<div class="content-box">
+				<div className="tabs">
+					<div
+						className={`tab ${activeTab === 1 && "active"}`}
+						onClick={() => handleTabClick(1)}
+					>
+						My Schedule
+					</div>
+					<div
+						className={`tab ${activeTab === 2 && "active"}`}
+						onClick={() => handleTabClick(2)}
+					>
+						Feed
+					</div>
+					<div
+						className={`tab ${activeTab === 3 && "active"}`}
+						onClick={() => handleTabClick(3)}
+					>
+						Discover
+					</div>
+				</div>
 				<div class="search-bar">
 					<input class="search-bar-text" type="text" placeholder="Search..." />
 					<button type="search-bar-button">Search</button>

@@ -3,6 +3,7 @@
 	padding: 0;
 	font-family: Helvetica;
 }
+
 .hero {
 	height: 100%;
 	width: 100%;
@@ -12,6 +13,7 @@
 	background-size: cover;
 	position: absolute;
 }
+
 .form-box {
 	width: 380px;
 	height: 400px;
@@ -23,6 +25,7 @@
 	border-radius: 10px;
 	transition: 0.5s;
 }
+
 .button-box {
 	width: 220px;
 	margin: 35px auto;
@@ -31,9 +34,11 @@
 	border-radius: 30px;
 	transition: 0.5s;
 }
+
 .button-box:hover {
 	box-shadow: 0 0 15px 9px #ffeca1;
 }
+
 .toggle-btn {
 	padding: 10px 30px;
 	cursor: pointer;
@@ -53,22 +58,26 @@
 	border-radius: 30px;
 	transition: 0.5s;
 }
+
 .social-icons {
 	margin: 30px auto;
 	text-align: center;
 }
+
 .social-icons img {
 	width: 30px;
 	margin: 0 12px;
 	cursor: pointer;
 	border-radius: 5px;
 }
+
 .input-group {
 	top: 180px;
 	position: absolute;
 	width: 280px;
 	transition: 0.5s;
 }
+
 .input-field {
 	width: 100%;
 	padding: 10px 0;
@@ -80,9 +89,11 @@
 	outline: none;
 	background: transparent;
 }
+
 .check-box {
 	margin: 30px 10px 30px 0;
 }
+
 span {
 	color: #777;
 	font-size: 12px;
@@ -90,6 +101,7 @@ span {
 	margin: 30px 0 30px 0;
 	position: absolute;
 }
+
 .submit-btn {
 	width: 85%;
 	height: 30px;
@@ -104,12 +116,15 @@ span {
 	box-shadow: 0 0 20px 9px #e0f8ff;
 	transition: 0.5s;
 }
+
 .submit-btn:hover {
 	box-shadow: 0 0 15px 9px #ffeca1;
 }
+
 #login {
 	left: 50px;
 }
+
 #register {
 	left: 450px;
 }

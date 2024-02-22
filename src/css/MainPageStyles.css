@@ -115,6 +115,8 @@ body {
 	padding: 20px;
 	height: 70dvh;
 	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
 }
 
 .search-bar {
@@ -123,7 +125,7 @@ body {
 	background-color: #ffca00;
 	padding: 10px;
 	margin-bottom: 10px;
-	border-radius: 5px;
+	border-radius: 0px 0px 5px 5px;
 }
 
 .search-bar-text {
@@ -158,7 +160,7 @@ body {
 	background-color: #daf8ff;
 	color: black;
 	border-radius: 10px;
-	padding: 0px 10px 0px 10px;
+	padding: 5px 10px 5px 10px;
 	margin-bottom: 10px;
 }
 .post-footer {
@@ -201,4 +203,41 @@ body {
 	.map-button {
 		margin: 5%;
 	}
+}
+
+/* Tabs at the top of content-box */
+.tabs {
+	display: flex;
+}
+
+.tab {
+	flex: 1;
+	padding: 10px 20px;
+	cursor: pointer;
+	border: 2px solid #ffca00;
+	border-bottom: none;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	background-color: transparent; /* Remove default background */
+	text-align: center; /* Center the text within each tab */
+	transition: ease-in 0.1s;
+}
+
+.tab.active {
+	background-color: #ffca00;
+}
+
+.tab-content {
+	background-color: white;
+	border: 1px solid #ffca00;
+	border-radius: 5px;
+	padding: 20px;
+	margin-top: -1px;
+	flex-grow: 1;
+}
+
+.tab-container {
+	display: flex;
+	width: 100%; /* Make the tab container span the full width */
+	border-bottom: 1px solid transparent; /* Add a bottom border for separation */
 }
