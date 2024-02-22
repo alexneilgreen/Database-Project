@@ -168,7 +168,7 @@ app.get("/auto/scheduled/:userId", (req, res) => {
 });
 
 // Auto API to retrieve events associated with RSOs followed by the user
-app.get("/auto/events/:userId", (req, res) => {
+app.get("/auto/followed-rsos/:userId", (req, res) => {
   const userId = parseInt(req.params.userId);
 
   // Check if userId is a valid number
@@ -205,6 +205,46 @@ app.get("/auto/events/:userId", (req, res) => {
     });
   });
 });
+
+// Create RSO API
+app.post("/create-rso", (req, res) => {
+  const { adminId, rsoName, rsoDescr, adminCode } = req.body;
+
+  // Check if adminId, rsoName, rsoDescr, and adminCode are provided
+  if (!adminId || !rsoName || !rsoDescr || !adminCode) {
+    return res.status(400).json({ code: "bad", message: "Missing parameters" });
+  }
+
+  // Insert the RSO into the RSOs table
+  const insertQuery = "INSERT INTO RSOs (rsoName, rsoDescr, adminCode) VALUES (?, ?, ?)";
+  db.query(insertQuery, [rsoName, rsoDescr, adminCode], (err, results) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send("Internal Server Error");
+    }
+
+    const rsoId = results.insertId;
+
+    // Insert the admin-RSO pair into the RSO_Owners table
+    const insertOwnerQuery = "INSERT INTO RSO_Owners (adminId, rsoId) VALUES (?, ?)";
+    db.query(insertOwnerQuery, [adminId, rsoId], (ownerErr, ownerResults) => {
+      if (ownerErr) {
+        console.error(ownerErr);
+        // Rollback the RSO creation if adding admin fails
+        db.query("DELETE FROM RSOs WHERE rsoId = ?", [rsoId], (rollbackErr, rollbackResults) => {
+          if (rollbackErr) {
+            console.error(rollbackErr);
+          }
+        });
+        return res.status(500).send("Internal Server Error");
+      }
+
+      // Return success response
+      res.status(200).json({ code: "good", message: "RSO created successfully", rsoId });
+    });
+  });
+});
+
 
 // Create Event API
 app.post("/create-event", (req, res) => {
