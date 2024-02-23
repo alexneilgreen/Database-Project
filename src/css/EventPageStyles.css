@@ -4,56 +4,50 @@
 	font-family: Helvetica;
 }
 
-.rso-hero {
+.event-hero {
 	height: 100%;
 	width: 100%;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)),
-		url(../images/UCF_8.jpg);
+		url(../images/UCF_11.jpg);
 	background-position: center;
 	background-size: cover;
 	position: absolute;
 }
 
-.rso-container {
+.event-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
 }
 
-.rso-logo {
+.event-logo {
 	height: 8dvh;
 	display: block;
-	margin: 0 auto 50px auto;
-}
-
-.rso-title {
-	display: block;
 	margin: 0 auto 20px auto;
-	text-align: center; /* Center the text left to right */
 }
 
-.rso-form-box {
-	width: 400px;
+.event-form-box {
+	width: 300px;
 	padding: 20px;
 	border: 1px solid #ccc;
 	border-radius: 10px;
 	background-color: White;
 }
 
-.rso-form-box input,
-.rso-form-box textarea {
+.event-form-box input,
+.event-form-box textarea {
 	width: 100%;
 	margin-bottom: 10px;
 	padding: 8px;
 	box-sizing: border-box;
 }
 
-.rso-form-box textarea {
+.event-form-box textarea {
 	height: 100px;
 }
 
-.rso-create-btn {
+.event-create-btn {
 	font-weight: 600;
 	width: 85%;
 	height: 30px;
@@ -68,40 +62,18 @@
 	color: rgb(100, 100, 100);
 }
 
-.rso-create-btn:hover {
+.event-create-btn:hover {
 	color: rgb(40, 40, 40);
 	background: #bdbdbd;
 	box-shadow: 0 0 8px 4px #dadada;
 }
 
-.rso-create-event-btn {
+.event-edit-btn {
 	font-weight: 600;
-	width: 30%;
+	width: 48%;
 	height: 30px;
 	cursor: pointer;
 	margin: auto;
-	background: lightgreen;
-	outline: none;
-	border-radius: 30px;
-	border-color: #bdbdbd;
-	transition: 0.5s;
-	color: rgb(100, 100, 100);
-	text-shadow: 0 0 3px darkgray;
-}
-
-.rso-create-event-btn:hover {
-	color: rgb(40, 40, 40);
-	background: rgb(20, 150, 50);
-	box-shadow: 0 0 8px 4px #dadada;
-}
-
-.rso-edit-btn {
-	font-weight: 600;
-	width: 30%;
-	height: 30px;
-	cursor: pointer;
-	margin: auto;
-	margin-left: 5%;
 	background: lightgray;
 	outline: none;
 	border-radius: 30px;
@@ -111,19 +83,19 @@
 	text-shadow: 0 0 3px darkgray;
 }
 
-.rso-edit-btn:hover {
+.event-edit-btn:hover {
 	color: rgb(40, 40, 40);
 	background: #bdbdbd;
 	box-shadow: 0 0 8px 4px #dadada;
 }
 
-.rso-delete-btn {
+.event-delete-btn {
 	font-weight: 600;
-	width: 30%;
+	width: 48%;
 	height: 30px;
 	cursor: pointer;
 	margin: auto;
-	margin-left: 5%;
+	margin-left: 4%;
 	background: lightcoral;
 	outline: none;
 	border-radius: 30px;
@@ -132,12 +104,12 @@
 	color: rgb(100, 100, 100);
 }
 
-.rso-delete-btn:hover {
+.event-delete-btn:hover {
 	color: rgb(40, 40, 40);
 	background: rgb(235, 54, 54);
 	box-shadow: 0 0 8px 4px #dadada;
 }
 
-.rso-btn-span {
+.event-btn-span {
 	width: 10%;
 }

@@ -4,7 +4,7 @@ import FormBox from "../components/RSOPageComp/CreateFormBox.js";
 
 const CreateRSOPage = () => {
 	return (
-		<div className="RSO-hero">
+		<div className="rso-hero">
 			<FormBox />
 		</div>
 	);
