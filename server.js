@@ -27,10 +27,11 @@ app.use(cors());
 // Middleware to parse JSON in the request body
 app.use(express.json());
 
-//////////////////////////////// Login API
 // Login API
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
+
+  console.log("User logging in: ", username, password);
 
   // Check if user exists with the given username and password
   const query = "SELECT * FROM Users WHERE username = ? AND password = ?";
@@ -75,9 +76,11 @@ app.post("/login", (req, res) => {
 });
 
 
-//////////////////////////////// Register API
+// Register API
 app.post("/register", (req, res) => {
   const { username, password, phone, email, isAdmin } = req.body;
+
+  console.log("User registering: ", username, password, phone, email, isAdmin);
 
   // Check if username, phone, or email is already in use
   const checkQuery = "SELECT * FROM Users WHERE username = ?";
@@ -98,6 +101,12 @@ app.post("/register", (req, res) => {
         } else {
           // User successfully added to Users table
           const userId = insertUserResults.insertId;
+          const userInfo = {
+            userId: userId,
+            username: username,
+            phone: phone,
+            email: email
+          };
 
           if (isAdmin) {
             // If user is admin, insert into Admins table
@@ -108,12 +117,13 @@ app.post("/register", (req, res) => {
                 res.status(500).send("Internal Server Error");
               } else {
                 // User successfully added to Admins table
-                res.status(200).json({ code: "good", message: "Admin-user registered successfully" });
+                const adminId = insertAdminResults.insertId;
+                res.status(200).json({ code: "good", message: "Admin-user registered successfully", adminId: adminId, userInfo: userInfo });
               }
             });
           } else {
             // User is not admin, registration is complete
-            res.status(200).json({ code: "good", message: "User registered successfully" });
+            res.status(200).json({ code: "good", message: "User registered successfully", userInfo: userInfo });
           }
         }
       });
@@ -208,16 +218,18 @@ app.get("/auto/followed-rsos/:userId", (req, res) => {
 
 // Create RSO API
 app.post("/create-rso", (req, res) => {
-  const { adminId, rsoName, rsoDescr, adminCode } = req.body;
+  const { adminId, rsoName, rsoDescription, adminCode } = req.body;
+
+  console.log("Creating RSO: ", adminId, rsoName, rsoDescription, adminCode);
 
   // Check if adminId, rsoName, rsoDescr, and adminCode are provided
-  if (!adminId || !rsoName || !rsoDescr || !adminCode) {
+  if (!adminId || !rsoName || !rsoDescription || !adminCode) {
     return res.status(400).json({ code: "bad", message: "Missing parameters" });
   }
 
   // Insert the RSO into the RSOs table
-  const insertQuery = "INSERT INTO RSOs (rsoName, rsoDescr, adminCode) VALUES (?, ?, ?)";
-  db.query(insertQuery, [rsoName, rsoDescr, adminCode], (err, results) => {
+  const insertQuery = "INSERT INTO RSOs (rsoName, rsoDescription, adminCode) VALUES (?, ?, ?)";
+  db.query(insertQuery, [rsoName, rsoDescription, adminCode], (err, results) => {
     if (err) {
       console.error(err);
       return res.status(500).send("Internal Server Error");
@@ -248,7 +260,9 @@ app.post("/create-rso", (req, res) => {
 
 // Create Event API
 app.post("/create-event", (req, res) => {
-  const { adminId, rsoId, eventName, eventTime, eventAddress, locationLat, locationLong, eventDescr } = req.body;
+  const { adminId, rsoId, eventName, eventTime, eventAddress, locationLat, locationLong, eventDescription } = req.body;
+
+  console.log("Creating event: ", adminId, rsoId, eventName, eventTime, eventAddress, locationLat, locationLong, eventDescription);
 
   // Check if adminId, rsoId, and other parameters are provided and valid
   if (!adminId || !rsoId || isNaN(adminId) || isNaN(rsoId)) {
@@ -266,8 +280,8 @@ app.post("/create-event", (req, res) => {
     }
 
     // Insert the new event into the Events table
-    const insertEventQuery = "INSERT INTO Events (rsoId, eventName, eventTime, eventAddress, locationLat, locationLong, eventDescr) VALUES (?, ?, ?, ?, ?, ?, ?)";
-    db.query(insertEventQuery, [rsoId, eventName, eventTime, eventAddress, locationLat, locationLong, eventDescr], (insertErr, insertResults) => {
+    const insertEventQuery = "INSERT INTO Events (rsoId, eventName, eventTime, eventAddress, locationLat, locationLong, eventDescription) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    db.query(insertEventQuery, [rsoId, eventName, eventTime, eventAddress, locationLat, locationLong, eventDescription], (insertErr, insertResults) => {
       if (insertErr) {
         console.error(insertErr);
         return res.status(500).send("Internal Server Error");
@@ -285,7 +299,10 @@ app.post("/create-event", (req, res) => {
 
 // Follow RSO API
 app.post("/follow-rso", (req, res) => {
+
   const { userId, rsoId } = req.body;
+
+  console.log("User following RSO: ", userId, rsoId);
 
   // Check if userId and rsoId are provided and valid
   if (!userId || !rsoId || isNaN(userId) || isNaN(rsoId)) {
@@ -308,6 +325,8 @@ app.post("/follow-rso", (req, res) => {
 // Join RSO as Admin API
 app.post("/administrate-rso", (req, res) => {
   const { adminId, rsoId, adminCode } = req.body;
+
+  console.log("Admin joining RSO: ", adminId, rsoId, adminCode);
 
   // Check if adminId, rsoId, and adminCode are provided and valid
   if (!adminId || !rsoId || !adminCode || isNaN(adminId) || isNaN(rsoId)) {
@@ -346,6 +365,8 @@ app.post("/administrate-rso", (req, res) => {
 app.post("/unfollow-rso", (req, res) => {
   const { userId, rsoId } = req.body;
 
+  console.log("User unfollowing RSO: ", userId, rsoId)
+
   // Check if userId and rsoId are provided and valid
   if (!userId || !rsoId || isNaN(userId) || isNaN(rsoId)) {
     return res.status(400).json({ code: "bad", message: "Invalid user ID or RSO ID" });
@@ -367,6 +388,8 @@ app.post("/unfollow-rso", (req, res) => {
 // Leave RSO as Admin API
 app.post("/disown-rso", (req, res) => {
   const { adminId, rsoId } = req.body;
+
+  console.log("Admin leaving RSO: ", adminId, rsoId)
 
   // Check if adminId and rsoId are provided and valid
   if (!adminId || !rsoId || isNaN(adminId) || isNaN(rsoId)) {
@@ -390,6 +413,8 @@ app.post("/disown-rso", (req, res) => {
 app.get("/check-last-admin/:rsoId/:adminId", (req, res) => {
   const rsoId = parseInt(req.params.rsoId);
   const adminId = parseInt(req.params.adminId);
+
+  console.log("Checking if admin is last in RSO: ", rsoId, adminId);
 
   // Check if adminId and rsoId are provided and valid
   if (isNaN(adminId) || isNaN(rsoId)) {
@@ -424,6 +449,8 @@ app.delete("/delete-rso/:rsoId/:adminId", (req, res) => {
   const rsoId = parseInt(req.params.rsoId);
   const adminId = parseInt(req.params.adminId);
 
+  console.log("Deleting RSO: ", rsoId, adminId);
+
   // Check if rsoId and adminId are provided and valid
   if (isNaN(rsoId) || isNaN(adminId)) {
     return res.status(400).json({ code: "bad", message: "Invalid RSO ID or admin ID" });
@@ -442,33 +469,16 @@ app.delete("/delete-rso/:rsoId/:adminId", (req, res) => {
       return res.status(401).json({ code: "unauthorized", message: "Admin is not the owner of the RSO" });
     }
 
-    // Delete associated entries from RSO_Followers and RSO_Owners tables
-    const deleteFollowersQuery = "DELETE FROM RSO_Followers WHERE rsoId = ?";
-    db.query(deleteFollowersQuery, [rsoId], (followersErr, followersResults) => {
-      if (followersErr) {
-        console.error(followersErr);
-        return res.status(500).send("Internal Server Error");
-      }
-
-      const deleteOwnersQuery = "DELETE FROM RSO_Owners WHERE rsoId = ?";
-      db.query(deleteOwnersQuery, [rsoId], (ownersErr, ownersResults) => {
-        if (ownersErr) {
-          console.error(ownersErr);
+    // Delete the RSO from the RSOs table
+    const deleteQuery = "DELETE FROM RSOs WHERE rsoId = ?";
+      db.query(deleteQuery, [rsoId], (deleteErr, deleteResults) => {
+        if (deleteErr) {
+          console.error(deleteErr);
           return res.status(500).send("Internal Server Error");
         }
 
-        // Delete the RSO from the RSOs table
-        const deleteQuery = "DELETE FROM RSOs WHERE rsoId = ?";
-        db.query(deleteQuery, [rsoId], (deleteErr, deleteResults) => {
-          if (deleteErr) {
-            console.error(deleteErr);
-            return res.status(500).send("Internal Server Error");
-          }
-          
-          // Return success response
-          res.status(200).json({ code: "good", message: "RSO deleted successfully" });
-        });
-      });
+      // Return success response
+      res.status(200).json({ code: "good", message: "RSO deleted successfully" });
     });
   });
 });
@@ -478,6 +488,8 @@ app.delete("/delete-event/:rsoId/:adminId/:eventId", (req, res) => {
   const rsoId = parseInt(req.params.rsoId);
   const adminId = parseInt(req.params.adminId);
   const eventId = parseInt(req.params.eventId);
+
+  console.log("Deleting Event: ", rsoId, adminId, eventId);
 
   // Check if adminId, rsoId, and eventId are provided and valid
   if (isNaN(adminId) || isNaN(rsoId) || isNaN(eventId)) {
@@ -516,7 +528,9 @@ app.put("/edit-event/:adminId/:rsoId/:eventId", (req, res) => {
   const adminId = parseInt(req.params.adminId);
   const rsoId = parseInt(req.params.rsoId);
   const eventId = parseInt(req.params.eventId);
-  const { eventName, eventTime, locationLat, locationLong, eventAddress, eventDescr } = req.body;
+  const { eventName, eventTime, locationLat, locationLong, eventAddress, eventDescription } = req.body;
+
+  console.log("Editing event details: ", eventName, eventTime, locationLat, locationLong, eventAddress, eventDescription, adminId, rsoId, eventId);
 
   // Check if adminId, rsoId, and eventId are provided and valid
   if (isNaN(adminId) || isNaN(rsoId) || isNaN(eventId)) {
@@ -537,8 +551,8 @@ app.put("/edit-event/:adminId/:rsoId/:eventId", (req, res) => {
     }
 
     // Update the event information in the Events table
-    const updateQuery = "UPDATE Events SET eventName = ?, eventTime = ?, locationLat = ?, locationLong = ?, eventAddress = ?, eventDescr = ? WHERE eventId = ?";
-    const values = [eventName, eventTime, locationLat, locationLong, eventAddress, eventDescr, eventId];
+    const updateQuery = "UPDATE Events SET eventName = ?, eventTime = ?, locationLat = ?, locationLong = ?, eventAddress = ?, eventDescription = ? WHERE eventId = ?";
+    const values = [eventName, eventTime, locationLat, locationLong, eventAddress, eventDescription, eventId];
     db.query(updateQuery, values, (updateErr, updateResults) => {
       if (updateErr) {
         console.error(updateErr);
@@ -555,7 +569,9 @@ app.put("/edit-event/:adminId/:rsoId/:eventId", (req, res) => {
 app.put("/edit-rso/:rsoId/:adminId", (req, res) => {
   const adminId = parseInt(req.params.adminId);
   const rsoId = parseInt(req.params.rsoId);
-  const { rsoName, rsoDescr, adminCode } = req.body;
+  const { rsoName, rsoDescription, adminCode } = req.body;
+
+  console.log("Editing RSO details: ", rsoName, rsoDescription, adminCode, adminId, rsoId);
 
   // Check if adminId and rsoId are provided and valid
   if (isNaN(adminId) || isNaN(rsoId)) {
@@ -565,6 +581,9 @@ app.put("/edit-rso/:rsoId/:adminId", (req, res) => {
   // Verify that the admin is the owner of the RSO
   const ownershipQuery = "SELECT * FROM RSO_Owners WHERE adminId = ? AND rsoId = ?";
   db.query(ownershipQuery, [adminId, rsoId], (ownershipErr, ownershipResults) => {
+
+    console.log("RSO ownership results: " + ownershipResults + "\n");
+
     if (ownershipErr) {
       console.error(ownershipErr);
       return res.status(500).send("Internal Server Error");
@@ -576,8 +595,8 @@ app.put("/edit-rso/:rsoId/:adminId", (req, res) => {
     }
 
     // Update the RSO information in the RSOs table
-    const updateQuery = "UPDATE RSOs SET rsoName = ?, rsoDescr = ?, adminCode = ? WHERE rsoId = ?";
-    const values = [rsoName, rsoDescr, adminCode, rsoId];
+    const updateQuery = "UPDATE RSOs SET rsoName = ?, rsoDescription = ?, adminCode = ? WHERE rsoId = ?";
+    const values = [rsoName, rsoDescription, adminCode, rsoId];
     db.query(updateQuery, values, (updateErr, updateResults) => {
       if (updateErr) {
         console.error(updateErr);
@@ -590,6 +609,29 @@ app.put("/edit-rso/:rsoId/:adminId", (req, res) => {
   });
 });
 
+// Delete User API
+app.delete("/delete-user/:userId", (req, res) => {
+  const userId = parseInt(req.params.userId);
+
+  console.log("Deleting user: ", userId);
+
+  // Check if userId is provided and valid
+  if (isNaN(userId)) {
+    return res.status(400).json({ code: "bad", message: "Invalid user ID" });
+  }
+
+  // Delete user entry from Users table and related entries from other tables
+  const deleteQuery = "DELETE FROM Users WHERE userId = ?";
+  db.query(deleteQuery, [userId], (deleteErr, deleteResults) => {
+    if (deleteErr) {
+      console.error(deleteErr);
+      return res.status(500).send("Internal Server Error");
+    }
+
+    // Return success response
+    res.status(200).json({ code: "good", message: "User deleted successfully" });
+  });
+});
 
 // Start the server
 app.listen(port, () => {

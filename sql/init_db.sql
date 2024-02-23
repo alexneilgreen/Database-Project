@@ -1,4 +1,6 @@
-use cop4710db;
+CREATE DATABASE cop4710db;
+
+USE cop4710db;
 
 CREATE TABLE Users (
     userId INT AUTO_INCREMENT PRIMARY KEY,
@@ -23,12 +25,14 @@ CREATE TABLE RSOs (
 
 CREATE TABLE Events (
     eventId INT AUTO_INCREMENT PRIMARY KEY,
+    rsoId INT,
     eventName VARCHAR(50) NOT NULL,
     eventTime VARCHAR(50) NOT NULL,
     locationLat DECIMAL(10, 8) NOT NULL,
     locationLong DECIMAL(11, 8) NOT NULL,
     eventAddress VARCHAR(100) NOT NULL,
-    eventDescr VARCHAR(200) NOT NULL
+    eventDescr VARCHAR(200) NOT NULL,
+    FOREIGN KEY (rsoId) REFERENCES RSOs(rsoId) ON DELETE CASCADE
 );
 
 CREATE TABLE Event_Lists (

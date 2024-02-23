@@ -2,7 +2,7 @@ USE cop4710db;
 
 -- Inserting dummy user data
 INSERT INTO users (username, phone, email, password) 
-VALUES ('admin1', '1234567890', 'dummy_admin@example.com', 'pass1');
+VALUES ('admin1', '1234567890', 'base_admin@database.com', 'adminpass1');
 
 -- Getting the ID of the inserted user
 SET @userId = LAST_INSERT_ID();
