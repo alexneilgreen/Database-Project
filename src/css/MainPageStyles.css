@@ -39,19 +39,21 @@ body {
 	align-items: center; /* Center items vertically */
 }
 
-.header-button {
+.header-button,
+.header-link {
 	background-color: gray;
 	height: 2dvh;
 	font-weight: 500;
 	color: white;
 	padding: 10px 20px;
-	border-radius: 5px;
-	margin-left: 10px; /* Add spacing between buttons */
+	border-radius: 10px;
+	margin-left: 10px;
 	cursor: pointer;
 	transition: 0.5s;
 }
 
-.header-button:hover {
+.header-button:hover,
+.header-link:hover {
 	background-color: #ffca00;
 }
 
@@ -339,4 +341,32 @@ body {
 	color: rgb(40, 40, 40);
 	background: rgb(20, 150, 50);
 	box-shadow: 0 0 8px 4px #dadada;
+}
+
+/*Drop Down Tab*/
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: block;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+	z-index: 1;
+	top: calc(100%); /* Shift dropdown below the button */
+	left: calc(10px); /* Align with the left edge of the button */
+}
+
+.dropdown-content .dropdown-link {
+	display: block;
+	padding: 10px;
+	text-decoration: none;
+	color: #000;
+}
+
+.dropdown-content .dropdown-link:hover {
+	background-color: #f1f1f1;
 }
