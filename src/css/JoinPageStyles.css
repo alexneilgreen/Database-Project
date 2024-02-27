@@ -1,0 +1,143 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Helvetica;
+}
+
+.rso-hero {
+	height: 100%;
+	width: 100%;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)),
+		url(../images/UCF_8.jpg);
+	background-position: center;
+	background-size: cover;
+	position: absolute;
+}
+
+.rso-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.rso-logo {
+	height: 8dvh;
+	display: block;
+	margin: 0 auto 50px auto;
+}
+
+.rso-title {
+	display: block;
+	margin: 0 auto 20px auto;
+	text-align: center; /* Center the text left to right */
+}
+
+.rso-form-box {
+	width: 400px;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	background-color: White;
+}
+
+.rso-form-box input,
+.rso-form-box textarea {
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 8px;
+	box-sizing: border-box;
+}
+
+.rso-form-box textarea {
+	height: 100px;
+}
+
+.rso-create-btn {
+	font-weight: 600;
+	width: 85%;
+	height: 30px;
+	cursor: pointer;
+	display: block;
+	margin: auto;
+	background: lightgray;
+	outline: none;
+	border-radius: 30px;
+	border-color: #bdbdbd;
+	transition: 0.5s;
+	color: rgb(100, 100, 100);
+}
+
+.rso-create-btn:hover {
+	color: rgb(40, 40, 40);
+	background: #bdbdbd;
+	box-shadow: 0 0 8px 4px #dadada;
+}
+
+.rso-create-event-btn {
+	font-weight: 600;
+	width: 30%;
+	height: 30px;
+	cursor: pointer;
+	margin: auto;
+	background: lightgreen;
+	outline: none;
+	border-radius: 30px;
+	border-color: #bdbdbd;
+	transition: 0.5s;
+	color: rgb(100, 100, 100);
+	text-shadow: 0 0 3px darkgray;
+}
+
+.rso-create-event-btn:hover {
+	color: rgb(40, 40, 40);
+	background: rgb(20, 150, 50);
+	box-shadow: 0 0 8px 4px #dadada;
+}
+
+.rso-edit-btn {
+	font-weight: 600;
+	width: 30%;
+	height: 30px;
+	cursor: pointer;
+	margin: auto;
+	margin-left: 5%;
+	background: lightgray;
+	outline: none;
+	border-radius: 30px;
+	border-color: #bdbdbd;
+	transition: 0.5s;
+	color: rgb(100, 100, 100);
+	text-shadow: 0 0 3px darkgray;
+}
+
+.rso-edit-btn:hover {
+	color: rgb(40, 40, 40);
+	background: #bdbdbd;
+	box-shadow: 0 0 8px 4px #dadada;
+}
+
+.rso-delete-btn {
+	font-weight: 600;
+	width: 30%;
+	height: 30px;
+	cursor: pointer;
+	margin: auto;
+	margin-left: 5%;
+	background: lightcoral;
+	outline: none;
+	border-radius: 30px;
+	border-color: #bdbdbd;
+	transition: 0.5s;
+	color: rgb(100, 100, 100);
+}
+
+.rso-delete-btn:hover {
+	color: rgb(40, 40, 40);
+	background: rgb(235, 54, 54);
+	box-shadow: 0 0 8px 4px #dadada;
+}
+
+.rso-btn-span {
+	width: 10%;
+}
