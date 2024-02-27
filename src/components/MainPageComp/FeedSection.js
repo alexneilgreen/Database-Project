@@ -4,18 +4,23 @@ import "../../css/MainPageStyles.css";
 
 function Feed() {
 	const [activeTab, setActiveTab] = useState(1);
-	const [modalOpen, setModalOpen] = useState(false); // State to manage modal open/close
+	const [modalPost, setModalPost] = useState(null); // State to manage modal post-box
 
 	const handleTabClick = (tabNumber) => {
 		setActiveTab(tabNumber);
 	};
 
-	const handleRSONameClick = () => {
-		setModalOpen(true); // Open the modal when RSO name is clicked
+	const handleRSONameClick = (postId) => {
+		setModalPost(postId); // Store the post-box ID when RSO name is clicked
+		console.log("Modal of " + postId);
 	};
 
+	const editEvent = () => {};
+
+	const populateMap = () => {};
+
 	const closeModal = () => {
-		setModalOpen(false); // Close the modal
+		setModalPost(null); // Reset the modal post-box ID
 	};
 
 	useEffect(() => {
@@ -42,19 +47,19 @@ function Feed() {
 						className={`tab ${activeTab === 1 && "active"}`}
 						onClick={() => handleTabClick(1)}
 					>
-						My Schedule
+						Discover
 					</div>
 					<div
 						className={`tab ${activeTab === 2 && "active"}`}
 						onClick={() => handleTabClick(2)}
 					>
-						Feed
+						Followed Events
 					</div>
 					<div
 						className={`tab ${activeTab === 3 && "active"}`}
 						onClick={() => handleTabClick(3)}
 					>
-						Discover
+						Followed RSOs
 					</div>
 				</div>
 				<div className="search-bar">
@@ -66,7 +71,7 @@ function Feed() {
 					<button type="search-bar-button">Search</button>
 				</div>
 				<div className="posts-container">
-					<div className="post-box">
+					<div className="post-box" id="post1">
 						<div className="post-header">
 							<h4>Event Name</h4>
 							<h4>Event Time</h4>
@@ -82,16 +87,17 @@ function Feed() {
 						<div className="post-footer">
 							<p>
 								RSO:{" "}
-								<strong id="post1" onClick={handleRSONameClick}>
+								<strong onClick={() => handleRSONameClick("post1")}>
 									RSO Name
 								</strong>
 							</p>
-							<button>Map</button>
+							<button onClick={editEvent}>Edit</button>
+							<button onClick={populateMap}>Map</button>
 						</div>
 					</div>
 				</div>
 			</div>
-			{modalOpen && (
+			{modalPost && (
 				<div className="modal-background">
 					<div className="modal">
 						<div className="modal-content">

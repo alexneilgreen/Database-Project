@@ -9,7 +9,7 @@ import CreateEventPage from "./pages/CreateEventPage";
 import EditEventPage from "./pages/EditEventPage";
 import CreateRSOPage from "./pages/CreateRSOPage";
 import EditRSOPage from "./pages/EditRSOPage";
-import TestPage from "./pages/TestPage";
+import JoinRSOPage from "./pages/JoinRSOPage";
 
 function App() {
 	return (
@@ -21,7 +21,7 @@ function App() {
 				<Route path="/editEvent" index element={<EditEventPage />} />
 				<Route path="/createRSO" index element={<CreateRSOPage />} />
 				<Route path="/editRSO" index element={<EditRSOPage />} />
-				<Route path="/test" index element={<TestPage />} />
+				<Route path="/joinRSO" index element={<JoinRSOPage />} />
 			</Routes>
 		</BrowserRouter>
 	);
