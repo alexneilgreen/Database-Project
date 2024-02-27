@@ -203,7 +203,7 @@ body {
 	.map-section {
 		width: 96dvw;
 		height: 45dvh;
-		padding: 2dvw;
+		padding: 2dvh 0dvw 2dvw 4dvw;
 	}
 
 	.feed-content-box {
