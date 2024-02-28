@@ -1,4 +1,4 @@
-USE cop4710db;
+USE cop4710db_test;
 
 -- Create an event associated with the RSO
 INSERT INTO Events (rsoId, eventName, eventTime, locationLat, locationLong, eventAddress, eventDescr)

@@ -1,4 +1,4 @@
-USE cop4710db;
+USE cop4710db_test;
 
 -- Create a test RSO
 INSERT INTO rsos (rsoname, rsodescription, admincode) 
