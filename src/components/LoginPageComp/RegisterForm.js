@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Cookies from 'js-cookie';
+import axios from "axios";
 
 function RegisterForm() {
 	// Define state variables to store user input
@@ -17,7 +18,6 @@ function RegisterForm() {
 	// Function to handle form submission
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-
 		try {
 			const response = await axios.post("http://localhost:3001/register", {
 			  username: username,
