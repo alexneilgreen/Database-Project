@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Cookies from 'js-cookie';
 import axios from "axios";
+import Cookies from 'js-cookie';
 
 function RegisterForm() {
 	// Define state variables to store user input

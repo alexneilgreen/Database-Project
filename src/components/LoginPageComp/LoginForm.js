@@ -12,13 +12,6 @@ function LoginForm() {
 		console.error("Error:", error.response.data);
 	};
 
-	// Function to set a cookie
-  	function setCookie(name, value, days) {
-		const expires = new Date();
-		expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
-		document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
-  	}
-
 	const handleLogin = async (e) => {
 		e.preventDefault();
 		try {
