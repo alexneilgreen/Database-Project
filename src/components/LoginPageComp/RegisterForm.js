@@ -1,6 +1,19 @@
 import React, { useState } from "react";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 import axios from "axios";
+
+const loginForm = () => {
+	const form = document.getElementById("log-formBox");
+	const x = document.getElementById("login");
+	const y = document.getElementById("register");
+	const z = document.getElementById("log-btn");
+
+	form.style.height = "350px";
+	x.style.left = "50px";
+	y.style.left = "450px";
+	z.style.left = "0px";
+	z.style.width = "100px";
+};
 
 function RegisterForm() {
 	// Define state variables to store user input
@@ -13,33 +26,33 @@ function RegisterForm() {
 	// Function to handle errors
 	const handleError = (error) => {
 		console.error("Error:", error.response.data);
-	  };
+	};
 
 	// Function to handle form submission
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
 			const response = await axios.post("http://localhost:3001/register", {
-			  username: username,
-			  password: password,
-			  phone: phone,
-			  email: email,
-			  isAdmin: isAdmin,
+				username: username,
+				password: password,
+				phone: phone,
+				email: email,
+				isAdmin: isAdmin,
 			});
 			if (response.data.code === "good") {
 				const userInfo = response.data.userInfo;
 
 				//Record data?
 
-				//Move back to login?
-
+				//Move back to login
+				loginForm();
 			} else {
 				// Handle registration failure
 				handleError(new Error(response.data.message));
 			}
-		  } catch (error) {
+		} catch (error) {
 			handleError(error);
-		  }
+		}
 	};
 
 	return (
