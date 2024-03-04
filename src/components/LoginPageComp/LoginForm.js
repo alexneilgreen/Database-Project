@@ -1,23 +1,56 @@
 // import React from "react";
 import React, { useState } from "react";
 import axios from "axios";
+import Cookies from 'js-cookie';
 
 function LoginForm() {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 
+	// Function to handle errors
+	const handleError = (error) => {
+		console.error("Error:", error.response.data);
+	};
+
+	// Function to set a cookie
+  	function setCookie(name, value, days) {
+		const expires = new Date();
+		expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+		document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
+  	}
+
 	const handleLogin = async (e) => {
 		e.preventDefault();
 		try {
-			const response = await axios.post("http://localhost:3001/login", {
-				username,
-				password,
-			});
-			console.log(response.data);
-			// Handle successful login, such as redirecting to another page
+		  const response = await axios.post("http://localhost:3001/login", {
+			username: username,
+			password: password,
+		  });
+		  if (response.data.code === "good") {
+			// Extract user information from the response
+			const userInfo = response.data.userInfo;
+			// Set cookies based on user type (admin or regular user)
+			if (response.data.adminId) {
+			  // User is an admin
+			  Cookies.set("isAdmin", true);
+			  Cookies.set("adminId", response.data.adminId);
+			} else {
+			  // Regular user
+			  Cookies.set("isAdmin", false);
+			}
+			// Set other user information in cookies if needed
+			Cookies.set("userId", userInfo.userId);
+			Cookies.set("username", userInfo.username);
+			Cookies.set("phone", userInfo.phone);
+			Cookies.set("email", userInfo.email);
+			// Redirect to main page
+			window.location.href = '/main';
+		  } else {
+			// Handle invalid username/password
+			handleError(new Error(response.data.message));
+		  }
 		} catch (error) {
-			console.error("Login failed:", error.response.data.message);
-			// Handle login failure, such as displaying an error message
+		  handleError(error);
 		}
 	};
 

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Cookies from 'js-cookie';
 
 function RegisterForm() {
 	// Define state variables to store user input
@@ -8,41 +9,37 @@ function RegisterForm() {
 	const [email, setEmail] = useState("");
 	const [isAdmin, setIsAdmin] = useState(false); // Assuming isAdmin is a boolean
 
+	// Function to handle errors
+	const handleError = (error) => {
+		console.error("Error:", error.response.data);
+	  };
+
 	// Function to handle form submission
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		// Create a user object with the input data
-		const newUser = {
-			username: username,
-			password: password,
-			phone: phone,
-			email: email,
-			isAdmin: isAdmin,
-		};
-
 		try {
-			// Make a POST request to the register endpoint
-			const response = await fetch("http://localhost:3001/register", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(newUser),
+			const response = await axios.post("http://localhost:3001/register", {
+			  username: username,
+			  password: password,
+			  phone: phone,
+			  email: email,
+			  isAdmin: isAdmin,
 			});
+			if (response.data.code === "good") {
+				const userInfo = response.data.userInfo;
 
-			// Check if the request was successful
-			if (response.ok) {
-				// Registration successful, you can redirect or do something else
-				console.log("Registration successful");
+				//Record data?
+
+				//Move back to login?
+
 			} else {
-				// Registration failed, handle the error
-				const errorData = await response.json();
-				console.error("Registration failed:", errorData.message);
+				// Handle registration failure
+				handleError(new Error(response.data.message));
 			}
-		} catch (error) {
-			console.error("Error during registration:", error.message);
-		}
+		  } catch (error) {
+			handleError(error);
+		  }
 	};
 
 	return (

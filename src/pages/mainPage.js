@@ -4,8 +4,8 @@ import React from "react";
 
 // import "../components/MainPageComp/MainScript.js";
 
-import MainHeader from "../components/MainPageComp/MainHeader";
-import Feed from "../components/MainPageComp/FeedSection";
+import MainHeader from "../components/MainPageComp/MainHeader.js";
+import Feed from "../components/MainPageComp/FeedSection.js";
 import Map from "../components/MainPageComp/MapSection.js";
 
 const MainPage = () => {
