@@ -39,8 +39,9 @@ function LoginForm() {
 				onChange={(e) => setPassword(e.target.value)}
 				required
 			/>
-			<input type="checkbox" className="log-check-box" />
-			<span>Remember Password</span>
+			{/* <input type="checkbox" className="log-check-box" />
+			<span>Remember Password</span> */}
+			<br />
 			<button type="submit" className="log-submit-btn">
 				Log In
 			</button>
