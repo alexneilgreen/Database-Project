@@ -7,7 +7,7 @@ class FormScript extends React.Component {
 		const y = document.getElementById("register");
 		const z = document.getElementById("log-btn");
 
-		form.style.height = "400px";
+		form.style.height = "350px";
 		x.style.left = "50px";
 		y.style.left = "450px";
 		z.style.left = "0px";
@@ -20,7 +20,7 @@ class FormScript extends React.Component {
 		const y = document.getElementById("register");
 		const z = document.getElementById("log-btn");
 
-		form.style.height = "450px";
+		form.style.height = "500px";
 		x.style.left = "-400px";
 		y.style.left = "50px";
 		z.style.left = "85px";
