@@ -1,4 +1,5 @@
 import React from "react";
+import React, { useState } from "react";
 
 function RegisterForm() {
 	// Define state variables to store user input
