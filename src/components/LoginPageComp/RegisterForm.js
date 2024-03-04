@@ -42,7 +42,7 @@ function RegisterForm() {
 			if (response.data.code === "good") {
 				const userInfo = response.data.userInfo;
 
-				//Record data?
+				//Record data? ---- TO BE ADDED
 
 				//Move back to login
 				loginForm();
