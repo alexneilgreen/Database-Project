@@ -5,6 +5,9 @@ const cors = require("cors");
 const app = express();
 const port = 3001;
 
+//TODO:
+// ADD SEARCH API CALL
+
 // MySQL connection configuration
 const db = mysql.createConnection({
   host: "localhost",
@@ -684,55 +687,6 @@ app.post("/create-rso", (req, res) => {
   );
 });
 
-// RSO Deletion API
-app.delete("/delete-rso/:rsoId/:adminId", (req, res) => {
-  const rsoId = parseInt(req.params.rsoId);
-  const adminId = parseInt(req.params.adminId);
-
-  console.log("Deleting RSO: ", rsoId, adminId);
-
-  // Check if rsoId and adminId are provided and valid
-  if (isNaN(rsoId) || isNaN(adminId)) {
-    return res
-      .status(400)
-      .json({ code: "bad", message: "Invalid RSO ID or admin ID" });
-  }
-
-  // Query the database to check if the admin is the owner of the RSO
-  const ownershipQuery =
-    "SELECT * FROM RSO_Owners WHERE adminId = ? AND rsoId = ?";
-  db.query(ownershipQuery, [adminId, rsoId], (err, results) => {
-    if (err) {
-      console.error(err);
-      return res.status(500).send("Internal Server Error");
-    }
-
-    // If the admin is not the owner of the RSO, return an unauthorized response
-    if (results.length === 0) {
-      return res
-        .status(401)
-        .json({
-          code: "unauthorized",
-          message: "Admin is not the owner of the RSO",
-        });
-    }
-
-    // Delete the RSO from the RSOs table
-    const deleteQuery = "DELETE FROM RSOs WHERE rsoId = ?";
-    db.query(deleteQuery, [rsoId], (deleteErr, deleteResults) => {
-      if (deleteErr) {
-        console.error(deleteErr);
-        return res.status(500).send("Internal Server Error");
-      }
-
-      // Return success response
-      res
-        .status(200)
-        .json({ code: "good", message: "RSO deleted successfully" });
-    });
-  });
-});
-
 // Edit RSO API
 app.put("/edit-rso/:rsoId/:adminId", (req, res) => {
   const adminId = parseInt(req.params.adminId);
@@ -799,6 +753,55 @@ app.put("/edit-rso/:rsoId/:adminId", (req, res) => {
       });
     }
   );
+});
+
+// RSO Deletion API
+app.delete("/delete-rso/:rsoId/:adminId", (req, res) => {
+  const rsoId = parseInt(req.params.rsoId);
+  const adminId = parseInt(req.params.adminId);
+
+  console.log("Deleting RSO: ", rsoId, adminId);
+
+  // Check if rsoId and adminId are provided and valid
+  if (isNaN(rsoId) || isNaN(adminId)) {
+    return res
+      .status(400)
+      .json({ code: "bad", message: "Invalid RSO ID or admin ID" });
+  }
+
+  // Query the database to check if the admin is the owner of the RSO
+  const ownershipQuery =
+    "SELECT * FROM RSO_Owners WHERE adminId = ? AND rsoId = ?";
+  db.query(ownershipQuery, [adminId, rsoId], (err, results) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send("Internal Server Error");
+    }
+
+    // If the admin is not the owner of the RSO, return an unauthorized response
+    if (results.length === 0) {
+      return res
+        .status(401)
+        .json({
+          code: "unauthorized",
+          message: "Admin is not the owner of the RSO",
+        });
+    }
+
+    // Delete the RSO from the RSOs table
+    const deleteQuery = "DELETE FROM RSOs WHERE rsoId = ?";
+    db.query(deleteQuery, [rsoId], (deleteErr, deleteResults) => {
+      if (deleteErr) {
+        console.error(deleteErr);
+        return res.status(500).send("Internal Server Error");
+      }
+
+      // Return success response
+      res
+        .status(200)
+        .json({ code: "good", message: "RSO deleted successfully" });
+    });
+  });
 });
 
 // Join RSO as Admin API
