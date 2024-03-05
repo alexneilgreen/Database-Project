@@ -74,7 +74,7 @@ const OpenLayers = () => {
 		}
 	}, [iconLayer, iconFeatures]);
 
-	const addIconToMap = (long, lat) => {
+	const addIconToMap = (long, lat) => { //This should be able to be called from the main web page feed
 		const iconFeature = new Feature({
 			geometry: new Point(fromLonLat([long, lat])),
 		});

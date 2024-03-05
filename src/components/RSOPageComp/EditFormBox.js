@@ -13,13 +13,13 @@ function FormBox() {
 	const [rsoName, setRsoName] = useState("");
 	const [rsoDescription, setRsoDescription] = useState("");
 
+	//GET DATA
+
 	let rsoId;
 	let adminId;
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-
-		//GET DATA
 		
 		try {
 			const response = await axios.post(`http://localhost:3001/edit-rso/${rsoId}/${adminId}`, {

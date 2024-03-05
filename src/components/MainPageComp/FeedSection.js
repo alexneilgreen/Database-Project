@@ -8,6 +8,8 @@ function Feed() {
 
 	const handleTabClick = (tabNumber) => {
 		setActiveTab(tabNumber);
+
+		//Load events corresponding to tab number?
 	};
 
 	const handleRSONameClick = (postId) => {
@@ -17,7 +19,11 @@ function Feed() {
 
 	const editEvent = () => {};
 
-	const populateMap = () => {};
+	const populateMap = () => {
+		//Get lat and long from every loaded event
+
+		//Call addIconToMap(long,lat) from OpenLayers component
+	};
 
 	const closeModal = () => {
 		setModalPost(null); // Reset the modal post-box ID

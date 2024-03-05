@@ -41,6 +41,8 @@ function LoginForm() {
 		  } else {
 			// Handle invalid username/password
 			handleError(new Error(response.data.message));
+
+			//Report error to user
 		  }
 		} catch (error) {
 		  handleError(error);

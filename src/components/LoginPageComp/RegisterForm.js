@@ -46,9 +46,13 @@ function RegisterForm() {
 
 				//Move back to login
 				loginForm();
+
+				//Report success and instructions to user
 			} else {
 				// Handle registration failure
 				handleError(new Error(response.data.message));
+				
+				//Report failure to user
 			}
 		} catch (error) {
 			handleError(error);
