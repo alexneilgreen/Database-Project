@@ -324,6 +324,48 @@ app.get("/auto/followed-rsos/:userId", (req, res) => {
 
 //<<<
 
+//>>> EVENT SEARCHING
+
+// Search events by name, time, address, description, or RSO name/description
+app.get('/search-events', (req, res) => {
+  const searchQuery = req.query.q; // Search query from request parameter
+  if (!searchQuery) {
+    return res.status(400).json({ code: 'bad', message: 'Search query is required' });
+  }
+  const query = `
+    SELECT Events.*, RSOs.rsoName AS rsoName, RSOs.rsoDescription AS rsoDescription
+    FROM Events 
+    LEFT JOIN RSOs ON Events.rsoId = RSOs.rsoId 
+    WHERE eventName LIKE ? 
+    OR eventTime LIKE ? 
+    OR eventAddress LIKE ? 
+    OR eventDescription LIKE ?
+    OR RSOs.rsoName LIKE ? 
+    OR RSOs.rsoDescription LIKE ?
+  `;
+  const searchTerm = `%${searchQuery}%`;
+  db.query(query, [searchTerm, searchTerm, searchTerm, searchTerm, searchTerm, searchTerm], (err, results) => {
+    if (err) {
+      console.error(err);
+      res.status(500).json({ code: 'bad', message: 'Internal Server Error' });
+    } else {
+      if (results.length === 0) {
+        res.status(404).json({ code: 'none', message: 'No events found' });
+      } else {
+        res.status(200).json({ code: 'good', message: 'Events loaded successfully', events: results });
+      }
+    }
+  });
+});
+
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
+//<<<
+
 //>>> EVENT CREATION/DELETION/EDITING
 
 // Create Event API

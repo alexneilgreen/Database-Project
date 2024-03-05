@@ -6,7 +6,7 @@ import logo from "../../images/UCF_Logo_Clean_Horizontal.jpg";
 
 import axios from "axios";
 
-	//Send in address and get coordinates
+//Send in address and get coordinates
 async function geocode(location) {
 	try {
 	  const response = await axios.get(
